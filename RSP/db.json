@@ -1,0 +1,74 @@
+{
+  "mascotas": [
+    {
+      "titulo": "titulo1",
+      "transaccion": "ventas",
+      "descripcion": "test",
+      "precio": "123",
+      "correa": false,
+      "bozal": false,
+      "animal": "perro",
+      "raza": "obejero",
+      "fecha": "2020-12-24",
+      "vacuna": "si",
+      "fechaCreacion": "11/12/2020",
+      "id": 1
+    },
+    {
+      "titulo": "titulo2",
+      "transaccion": "ventas",
+      "descripcion": "test",
+      "precio": "321",
+      "correa": false,
+      "bozal": false,
+      "animal": "gato",
+      "raza": "obejero",
+      "fecha": "2020-12-24",
+      "vacuna": "si",
+      "fechaCreacion": "11/12/2020",
+      "id": 2
+    },
+    {
+      "titulo": "titulo3",
+      "transaccion": "ventas",
+      "descripcion": "test",
+      "precio": "433",
+      "correa": false,
+      "bozal": false,
+      "animal": "perro",
+      "raza": "obejero",
+      "fecha": "2020-12-24",
+      "vacuna": "si",
+      "fechaCreacion": "11/12/2020",
+      "id": 3
+    },
+    {
+      "titulo": "titulo4",
+      "transaccion": "ventas",
+      "descripcion": "asdasdasd",
+      "precio": "654",
+      "correa": true,
+      "bozal": true,
+      "animal": "gato",
+      "raza": "obejero",
+      "fecha": "2020-12-16",
+      "vacuna": "no",
+      "fechaCreacion": "11/12/2020",
+      "id": 4
+    },
+    {
+      "titulo": "titulo1",
+      "transaccion": "ventas",
+      "descripcion": "asdasd",
+      "precio": "1233",
+      "correa": true,
+      "bozal": true,
+      "animal": "perro",
+      "raza": "obejero",
+      "fecha": "2020-12-02",
+      "vacuna": "no",
+      "fechaCreacion": "11/12/2020",
+      "id": 5
+    }
+  ]
+}

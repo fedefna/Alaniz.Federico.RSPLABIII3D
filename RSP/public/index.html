@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="./js/script.js" defer type="module"></script>
+    <link rel="stylesheet" href="./css/estilo.css">
+    <title>Practica Parcial</title>
+</head>
+
+<body>
+    <header>
+        <img src="./images/logo_gorila.png" alt="logo">
+
+        <nav>
+            <ul>
+                <li><a href="#">Nosotros</a></li>
+                <li><a href="#">Anuncios</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <p class="importante">
+            <em>Administración</em>
+        </p>
+        <div id="img">
+        </div>
+    </section>
+
+    <section class="container" id="dataIn">
+        <form class="formulario" id="formPersona">
+            <label for="titulo">Titulo </label>
+            <input type="text" name="titulo" id="titulo" placeholder="Ingresar Titulo" data-validation="alphanumeric"
+                required>
+            <label for="descripcion">Descripción</label>
+            <input type="text" name="descripcion" id="descripcion" placeholder="Ingresar Descripcion"
+                data-validation="alphanumeric" required>
+            <fieldset>
+                <legend>EXTRAS</legend>
+                <input type="checkbox" id="cbCorrea">
+                <label for="correa"> Se entrega con correa</label><br>
+                <input type="checkbox" id="cbBozal">
+                <label for="bozal"> Se entrega con bozal</label><br>
+            </fieldset>
+            <fieldset>
+                <legend>ANIMAL</legend>
+                <label for="rdoP">
+                    <input type="radio" name="animal" id="rdoPerro" value="perro" checked>
+                    PERRO
+                </label>
+
+                <label for="rdoG">
+                    <input type="radio" name="animal" id="rdoGato" value="gato">
+                    GATO
+                </label>
+
+            </fieldset>
+
+
+            <label for="precio">Precio</label>
+            <input type="number" name="precio" id="precio" placeholder="Ingresar Precio" data-validation="number"
+                required>
+            <div id="caracteristicas">
+                <label for="raza"><img src="./images/pawprint.png" alt=""></label>
+                <input type="text" name="raza" id="raza" placeholder="Raza" required>
+                <label for="fecha"><img src="images/ciguena.png" alt=""></label>
+                <input type="date" name="fecha" id="fecha" placeholder="Fecha" required>
+                <label for="fecha"><img src="images/injection.png" alt=""></label>
+                <select name="vacuna">
+                    <option name="vacuna" value="si">Si</option>
+                    <option name="vacuna" value="no">No</option>
+
+                </select>
+            </div>
+
+
+            <div>
+                <button id="btnAdd" type="submit" class="btn btnAdd">
+                    <i class="fa fa-floppy-o fa-2x"></i>
+                    Guardar
+                </button>
+                <button id="btnEdit" type="submit" class="btn btnEdit ocultarBtn">Editar</button>
+                <button id="btnCancel" class="btn ocultarBtn">Cancelar</button>
+                <button id="btnDelete" class="btn btnDelete ocultarBtn">Eliminar</button>
+            </div>
+        </form>
+    </section>
+    <br>
+    <section class="col-md-12 mb-3">
+        <div class="row justify-content-center ">
+            <div class="badge rounded-pill bg-danger">
+                <h2 class="text-center">FILTROS</h2>
+                <form>
+                    <div class="form-row container">
+                        <div class="row container">
+                            <label for="filtrar"> Filtrar por:</label>
+                            <select name="filtrar" id="filtro" class="form-select form-select-sm">
+                                <option name="filtrar" value="todos">Todos</option>
+                                <option name="filtrar" value="perro">Perro</option>
+                                <option name="filtrar" value="gato">Gato</option>
+                            </select>
+                        </div>
+                        <hr>
+                        <div class="row container">
+                            <label for="promedio">Promedio</label>
+                            <input type="number" name="promedio" id="promedio" class="form-control" disabled>
+                            <label for="animalesVacunados">Animales vacunados (%)</label>
+                            <input type="percentage" name="animalesVacunados" id="txtAnimalesVacunados"
+                                class="form-control" disabled>
+                        </div>
+                        <hr>
+                        <div class="row container">
+                            <label for="precioMinimo">Precio Minimo</label>
+                            <input type="number" name="precioMin" id="txtMin" class="form-control" disabled>
+                            <label for="precioMaximo">Precio Maximo</label>
+                            <input type="number" name="precioMax" id="txtMax" class="form-control" disabled>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </section>
+    <br>
+
+    
+
+
+
+    <h4 class="text-center">Filtrar Columnas</h4>
+    <hr>
+    <div id="menuFiltros" class="container table-responsive">
+
+    </div>
+
+    <section class="container">
+        <div id="divTabla" class="table-responsive"></div>
+    </section>
+    <article id="spinner" class="container"></article>
+
+    <div class="container">
+        <canvas id="grafico"></canvas>
+    </div>
+
+    <section class="col-md-12 mb-3">
+        <div class="row justify-content-center ">
+            <div class="badge rounded-pill bg-danger container">
+                <h2 class="text-center">Data ultimos 3 anuncios</h2>
+                <form>
+                    <label for="Id:">Id</label>
+                    <input name="id1" id="id1" class="form-control" disabled>
+                    <label for="fechaDeCarga1">Fecha de carga</label>
+                    <input name="fechaDeCarga1" id="fechaDeCarga1" class="form-control" disabled>
+
+                    <label for="Id:">Id</label>
+                    <input name="id2" id="id2" class="form-control" disabled>
+                    <label for="fechaDeCarga2">Fecha de carga</label>
+                    <input name="fechaDeCarga2" id="fechaDeCarga2" class="form-control" disabled>
+
+                    <label for="Id:">Id</label>
+                    <input name="id3" id="id3" class="form-control" disabled>
+                    <label for="fechaDeCarga3">Fecha de carga</label>
+                    <input name="fechaDeCarga3" id="fechaDeCarga3" class="form-control" disabled>
+                </form>
+            </div>
+    </section>
+
+
+
+    <footer>
+
+        <nav>
+            <ul>
+                <li><a href="#">Nosotros</a></li>
+                <li><a href="#">Anuncios</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+        <p>
+            Todos los derechos reservados &copy;
+            <img src="./images/logo_gorila.png" alt="logo">
+        </p>
+
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
